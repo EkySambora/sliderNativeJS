@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo</title>
+		<style type="text/css">
+		*{padding: 0;margin: 0;}
+		h2{
+			color: salmon;
+			text-align: center;
+		}
+			.imgBig{
+				width: 800px;
+				margin: auto;
+			}
+			.imgBig>img{
+				width: 100%;
+			}
+
+			.imgSmall{
+				width: 400px;
+				margin: auto;
+			}
+			.imgSmall>img{
+				width: 20%;
+				margin: auto;
+				display: inline-block;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="imgBig">
+			<h2>Detective Conan</h2>
+			<img src="img/0.jpg" alt="">
+		</div>
+		<div class="imgSmall">
+			<img src="img/0.jpg">
+			<img src="img/1.jpg">
+			<img src="img/2.jpg">
+			<img src="img/3.jpg">
+			<img src="img/4.jpg">
+
+		</div>
+	
+		<script type="text/javascript">
+			let imgBig = document.querySelector('.imgBig>img');
+			let imgSmall = document.querySelectorAll('.imgSmall>img');
+
+			imgSmall.forEach((e,i)=>{
+				i = 1;
+				// console.log(i)
+				document.onkeydown = function(el){
+				
+					if(el.key == 'ArrowRight'){
+
+						if(i >= imgSmall.length) i = 0;
+						imgBig.src = 'img/'+(i++)+'.jpg';	
+					}
+					
+					if(el.key == 'ArrowLeft'){
+						if(i == imgSmall.length-4) i = 3	
+						console.log(i--)
+					}
+					
+
+				}
+				
+			})
+			
+
+
+		</script>	
+	</body>
+</html>
